@@ -1,0 +1,44 @@
+#haedermenulogo {
+  text-align: center;
+  font-size: 100%;
+}
+header {
+  height: 60px;
+  .navbar {
+    width: 100%;
+    margin: 0;
+    &.navbar-default {
+    }
+    .container-fluid {
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+    .navbar-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      .navbar-nav {
+        li {
+          a {
+            padding: 20px;
+            .gravatar {
+              margin-right: 2px;
+              img {
+                border-radius: 100%;
+              }
+            }
+          }
+        }
+        .dropdown-menu {
+          li {
+            &.divider {
+              margin: 0;
+            }
+            a {
+              padding: 10px 15px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
