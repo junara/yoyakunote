@@ -11,6 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20160615092936) do
+
+  create_table "items", force: :cascade do |t|
+    t.string   "name",                       null: false
+    t.string   "uuid",                       null: false
+    t.text     "message"
+    t.boolean  "item_active", default: true
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "items", ["uuid"], name: "index_items_on_uuid", unique: true
+
+  create_table "reservations", force: :cascade do |t|
+    t.string   "name"
+    t.string   "uuid",           null: false
+    t.datetime "start_datetime"
+    t.datetime "end_datetime"
+    t.string   "message"
+    t.integer  "item_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "reservations", ["item_id"], name: "index_reservations_on_item_id"
 
 end

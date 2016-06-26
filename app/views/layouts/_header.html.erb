@@ -1,5 +1,35 @@
 <header>
-  <div class="navbar navbar-default navbar-fixed-top">
-    <a href="/" class="navbar-brand">予約ノーfaviconト</a>
-  </div>
+  <a href="/" class="navbar-brand">
+    <title="">予約ノート</title>
+  </a>
 </header>
+
+<% unless @item.uuid.blank? %>
+<div id="secondheader" class="">
+  <div class="qrcode" style="display: inline-block;"><%= qrcode_svg(item_path, module_size: 1) %></div>
+  <div class="item-header-title">
+    <a href="<%= item_path(uuid: @item.uuid) %>" class="">
+      <title=""><%= @item.name %></title>
+    </a>
+  </div>
+  <div>
+    <%= link_to "装置情報", inform_item_path(uuid: @item.uuid), class: "btn btn-primary pull-right" %>
+  </div>
+</div>
+<% end %>
+<script type="text/javascript">
+  jQuery(function ($) {
+    var nav = $('#secondheader');
+    var header = $('header');
+    var offset = nav.offset();
+    $(window).scroll(function () {
+      if ($(window).scrollTop() > offset.top) {
+        nav.addClass('fixed');
+        header.addClass('header-margin')
+      } else {
+        nav.removeClass('fixed');
+        header.removeClass('header-margin')
+      }
+    });
+  });
+</script>

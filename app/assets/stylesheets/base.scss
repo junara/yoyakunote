@@ -1,21 +1,65 @@
 @import url("//fonts.googleapis.com/css?family=Open+Sans:400,700");
-
-body {
-  position: relative;
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  background: #f2f2f2;
-  color: #333;
+$gray-base: rgb(0, 0, 0);
+$gray-darker: lighten($gray-base, 13.5%);
+$gray-dark: lighten($gray-base, 20%);
+$gray: lighten($gray-base, 33.5%);
+$gray-light: lighten($gray-base, 46.7%);
+$gray-lighter: lighten($gray-base, 93.5%);
+$brand-primary: rgb(65, 139, 181);
+$brand-success: rgb(65, 139, 181);
+$brand-info: rgb(65, 139, 181);
+$brand-warning: rgb(209, 210, 230);
+$brand-danger: rgb(249, 193, 195);
+$blue-light: rgb(198,220,233);
+$blue-black: #1E333A;
+$brand-main-color: #418AB5;
+$button-default-color: #418AB5;
+$button-hover-color: #2573A1;
+$navbar-height: 85px;
+$navbar-default-bg: white;
+$padding-large-horizontal: 16px !default;
+$font-size-base: 10px;
+$font-size-small: ceil(($font-size-base * 0.85));
+$font-size-large: ceil(($font-size-base * 1.25));
+$max-width-xs: 767px; //xsの最大幅
+$max-width-sm: 991px; //smの最大幅
+$max-widht-md: 1119px; //mdの最大幅
+html {
+  font-size: $font-size-base;
 }
-
+body {
+  background: $gray-lighter;
+  color: $gray;
+  height: 100%;
+  margin: 0;
+  // padding-top: 80px;
+  position: relative;
+  width: 100%;
+}
+div.container {
+  max-width: $max-width-xs;
+}
+h1 {
+  font-size: 2.4rem;
+}
+h2 {
+  font-size: 2.0rem;
+}
+p {
+  font-size: 1.6rem;
+}
+span {
+  font-size: 1.6rem;
+}
+hr {
+  border-top: 1px solid $gray-dark;
+}
 a {
   color: #337ab7;
   text-decoration: none;
   outline: none;
-  &:visited,
-  &:active {
+  &:active,
+  &:visited {
     color: #337ab7;
   }
   &:hover {
@@ -25,11 +69,6 @@ a {
     color: #fff;
   }
 }
-
 img {
   max-width: 100%;
-}
-
-.gravatar {
-  border-radius: 100%;
 }

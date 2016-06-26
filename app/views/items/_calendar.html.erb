@@ -1,0 +1,19 @@
+<div class="flexbox-container-calendar container">
+  <% @today_reservations.each do |key, reservations| %>
+  <div class="flexbox-item-calendar">
+    <div><%= key.strftime("%d") %></div>
+      <% if reservations.nil? then %>
+      空
+      <% end %>
+  </div>
+  <% end %>
+
+  <% @later_reservations.each do |key, reservations| %>
+  <div class="flexbox-item-calendar">
+    <div class=""><%= key.strftime("%d") %></div>
+      <% if reservations.nil? then %>
+      空
+      <% end %>
+  </div>
+  <% end %>
+</div>

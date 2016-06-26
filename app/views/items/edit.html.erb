@@ -1,0 +1,13 @@
+<h1><%= @item.name %></h1>
+<div class="container">
+  <div class="form-horizontal" role="form">
+    <%= form_for [@item] do |f| %>
+    <%= f.hidden_field :item_id, value: @item.id %>
+    <%= f.text_field :name, class: "form-control" %>
+    <%= f.text_area :message, class: "form-control" %>
+    <%= f.submit "変更", class: "btn btn-large btn-primary" %>
+    <%= link_to "変更せずに戻る", inform_item_path(uuid: @item.uuid), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+
+</div>

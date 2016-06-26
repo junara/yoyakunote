@@ -1,0 +1,112 @@
+<div class="container">
+  <div class="flexbox-container">
+
+
+    <% @today_reservations.each do |key, reservations| %>
+    <div class="flexbox-item">
+      <div>
+        <h2 class="day-title"><%= key %></h2>
+        <button type="button" class="yoyaku general-toggleable-btn btn btn-default pull-right">予約記入</button>
+        <div class="toggleable" style="display: none">
+          <div class="form-horizontal" role="form">
+            <%= form_for [@item, @reservation] do |f| %>
+            <%= f.hidden_field :item_id, value: @item.id %>
+            <%= f.time_select :start_datetime, minute_step: 15,
+          default: { year: key.year,
+            month: key.month,
+            day: key.day},
+          class: "form-control"
+        %>
+            <span>から</span>
+            <%= f.time_select :end_datetime, minute_step: 15,
+          default: { year: key.year,
+            month: key.month,
+            day: key.day},
+          class: "form-control"
+        %>
+            <%= f.text_field :name, value: session[:name], class: "form-control" %>
+            <%= f.submit "予約追加", class: "btn btn-large btn-primary" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <ol>
+        <% unless reservations.nil? then %>
+        <% reservations.each do |reservation| %>
+        <li class="">
+          <span><%= reservation.start_datetime.strftime("%H時 %M分") %></span>
+          <span>から</span>
+          <span><%= reservation.end_datetime.strftime("%H時 %M分") %></span>
+          <span><%= reservation.name %></span>
+          <%= link_to "ical出力", item_reservation_path(item_uuid: @item.uuid, uuid: reservation.uuid, format: :ics) %>
+        </li>
+        <% end %>
+        <% end %>
+      </ol>
+    </div>
+    <% end %>
+
+    <% @later_reservations.each do |key, reservations| %>
+    <div class="flexbox-item">
+      <div class="">
+        <div class="">
+          <h2 class="day-title"><%= key %></h2>
+          <button type="button" class="btn btn-default pull-right" data-toggle="collapse" data-target="#collapse<%= key %>">予約記入</button>
+        </div>
+        <div class="collapse" id="collapse<%= key %>">
+          <div class="form-horizontal" role="form">
+            <%= form_for [@item, @reservation] do |f| %>
+            <%= f.hidden_field :item_id, value: @item.id %>
+            <%= f.time_select :start_datetime, minute_step: 15,
+          default: { year: key.year,
+            month: key.month,
+            day: key.day},
+          class: "form-control"
+        %>
+            <div>
+              <span>から</span>
+            </div>
+            <%= f.time_select :end_datetime, minute_step: 15,
+          default: { year: key.year,
+            month: key.month,
+            day: key.day},
+          class: "form-control input-lg"
+          %>
+            <%= f.text_field :name, value: session[:name], class: "form-control" %>
+            <%= f.submit "予約追加", class: "btn btn-large btn-primary" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <ol>
+        <% unless reservations.nil? then %>
+        <% reservations.each do |reservation| %>
+        <li class="">
+          <span><%= reservation.start_datetime.strftime("%H時 %M分") %></span>
+          <span>から</span>
+          <span><%= reservation.end_datetime.strftime("%H時 %M分") %></span>
+          <span><%= reservation.name %></span>
+          <%= link_to "ical出力", item_reservation_path(item_uuid: @item.uuid, uuid: reservation.uuid, format: :ics) %>
+        </li>
+        <% end %>
+        <% end %>
+      </ol>
+    </div>
+    <% end %>
+  </div>
+</div>
+<script type="text/javascript">
+  $(function () {
+    $('button.general-toggleable-btn').click(function () {
+      $(this).next("div.toggleable").slideToggle();
+    });
+  });
+  $(function () {
+    var targetOffset = $('.today_section').offset().top;
+    $('html,body').delay(100).animate({
+      scrollTop: targetOffset
+    }, "slow");
+  });
+</script>

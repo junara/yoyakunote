@@ -1,3 +1,51 @@
-// Place all the styles related to the items controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+h2.day-title {
+  font-size: 3rem;
+  margin: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+button.yoyaku {
+  display: inline;
+}
+$nc: 7; //1行当たりのカラム数
+$mc: 0.5%; //カラム左右のマージン
+div.flexbox-container-calendar {
+  display: flex; //flexboxレイアウトを使うためのおまじない
+  flex-wrap: wrap; //折り返しの設定
+  width: 300px;
+  border: 1px solid black;
+  div.flexbox-item-calendar {
+    width: calc((100% - #{$mc * ($nc - 1) * 2 + $mc * 2}) / #{$nc});
+    // border: 1px solid black;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    margin: 0.1rem $mc;
+    div.day-title {
+      border-bottom: 1px solid black; //flexboxとは関係なし。ただの修飾。
+    }
+  }
+}
+$n: 2; //1行当たりのカラム数
+$m: 1%; //カラム左右のマージン
+div.flexbox-container {
+  display: flex; //flexboxレイアウトを使うためのおまじない
+  flex-wrap: wrap; //折り返しの設定
+  div.flexbox-item {
+    width: calc((100% - #{$m * ($n - 1) * 2 + $m * 2}) / #{$n});
+    // border: 1px solid black;
+    margin: 2rem $m;
+    div.day-title {
+      border-bottom: 1px solid black; //flexboxとは関係なし。ただの修飾。
+    }
+  }
+}
+@media (max-width: 767px) {
+  /*レスポンシブ用*/
+  div.flexbox-container {
+    display: block;
+    div.flexbox-item {
+      width: 100%;
+    }
+  }
+}

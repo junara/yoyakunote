@@ -1,0 +1,11 @@
+<div class="contaner">
+  <ol>
+    <li class="bg-info"><%= @item.name %></li>
+    <li class="bg-info"><%= @item.message %></li>
+  </ol>
+
+  <div>
+    <%= link_to "装置情報編集", edit_item_path(uuid: @item.uuid), class: "btn btn-primary pull-right" %>
+  </div>
+
+</div>

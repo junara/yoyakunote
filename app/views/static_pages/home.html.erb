@@ -1,6 +1,15 @@
-<div class="jumbotron special">
-  <h1>予約ノート</h1>
+<div class="container">
+  <div class="jumbotron special">
+    <h1>予約ノート</h1>
+  </div>
+
+  <div id="first-form-section">
+    <%= form_for(@item) do |f| %>
+    <%= f.text_field :name, class: "form-control" %>
+
+    <%= f.submit "予約ノート作成", class: "btn btn-large btn-primary pull-right" %>
+    <% end %>
+  </div>
+  <div id="description-section">
+  </div>
 </div>
-<p>
-  Honokaの日本語表示 秋葉原と神田と神保町という3つの街のはざまにある伝統校、音ノ木坂学院は統廃合の危機に瀕していた。 学校の危機に、2年生の高坂穂乃果を中心とした9人の女子生徒が立ち上がる。 私たちの大好きな学校を守るために、私たちができること……。それは、アイドルになること！ アイドルになって学校を世に広く宣伝し、入学者を増やそう！ ここから、彼女たちの「みんなで叶える物語」（スクールアイドルプロジェクト）が始まった！
-</p>

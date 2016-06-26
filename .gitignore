@@ -31,3 +31,8 @@ doc/
 
 # Ignore thumbnail files.
 Thumbs.db
+
+# Ignore qrcode files.
+
+
+# Ignore vendor

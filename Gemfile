@@ -13,11 +13,15 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-
 # bootstrapテーマのhonoka http://qiita.com/iguchi1124/items/7a2fe94d0897e217290d
 gem 'honoka-rails', '>= 3.3.6.3'
 # icalendarで出力する http://docs.komagata.org/5105
 gem 'icalendar'
+# output qr code
+gem 'rqrcode'
+gem 'rqrcode_png'
+# autolink
+gem 'rails_autolink'
 
 group :development, :test do
   gem 'sqlite3'

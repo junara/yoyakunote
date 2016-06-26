@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="item-header">
+    <p>
+      <%= auto_link(simple_format(@item.message), html: { target: '_blank' }, link: :urls)   %>
+    </p>
+  </div>
+  <%= render partial: 'calendar', locals: { item: @item } %>
+
+  <%= render partial: 'reservations', locals: { item: @item } %>
+
+  <%= link_to "CSV出力", item_reservations_path(item_uuid: @item.uuid, format: :csv), class: "btn btn-primary pull-right" %>
+
+  <%= link_to "ical出力", item_reservations_path(item_uuid: @item.uuid, format: :ics), class: "btn btn-primary pull-right" %>
+
+</div>
