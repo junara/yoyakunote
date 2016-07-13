@@ -4,8 +4,9 @@ class CreateItems < ActiveRecord::Migration
       t.string :name, null: false
       t.string :uuid, null: false
       t.text :message
-      t.boolean :item_active, default: true
-
+      t.string :manufacture_name
+      t.string :manufacture_cn
+      t.boolean :is_active, default: true
       t.timestamps null: false
     end
     add_index :items, :uuid, unique: true

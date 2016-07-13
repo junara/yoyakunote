@@ -22,6 +22,12 @@ gem 'rqrcode'
 gem 'rqrcode_png'
 # autolink
 gem 'rails_autolink'
+#image
+gem 'rmagick', require: 'RMagick'
+gem 'carrierwave'
+gem 'cloudinary'
+gem 'momentjs-rails'
+gem 'bootstrap3-datetimepicker-rails'
 
 group :development, :test do
   gem 'sqlite3'

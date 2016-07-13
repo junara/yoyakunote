@@ -5,9 +5,11 @@ class CreateReservations < ActiveRecord::Migration
       t.string :uuid, null: false
       t.datetime :start_datetime
       t.datetime :end_datetime
+      t.boolean :is_active, default: true
       t.string :message
 
       t.integer :item_id
+      t.integer :user_id
 
       t.timestamps null: false
     end
