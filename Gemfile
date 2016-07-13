@@ -22,6 +22,8 @@ gem 'rqrcode'
 gem 'rqrcode_png'
 # autolink
 gem 'rails_autolink'
+# Use ActiveModel has_secure_password
+gem 'bcrypt', '~> 3.1.7'
 #image
 gem 'rmagick', require: 'RMagick'
 gem 'carrierwave'

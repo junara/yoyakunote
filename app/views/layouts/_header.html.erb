@@ -2,6 +2,11 @@
   <a href="/" class="navbar-brand">
     <title="">予約ノート</title>
   </a>
+  <% if logged_in? %>
+  <%= link_to 'Log out', logout_path, method: "delete" %>
+<% else %>
+  <%= link_to 'ログインする', login_path %>
+  <% end %>
 </header>
 
 <% unless @item.uuid.blank? %>

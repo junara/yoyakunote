@@ -98,6 +98,7 @@ ActiveRecord::Schema.define(version: 20160713133124) do
     t.text     "message"
     t.string   "email"
     t.boolean  "is_active",       default: true
+    t.string   "password"
     t.string   "password_digest"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
