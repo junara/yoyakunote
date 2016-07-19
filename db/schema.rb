@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160713133124) do
+ActiveRecord::Schema.define(version: 20160713235049) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -61,15 +61,16 @@ ActiveRecord::Schema.define(version: 20160713133124) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "match_messages", force: :cascade do |t|
-    t.integer  "match_id"
+  create_table "matching_conversations", force: :cascade do |t|
+    t.integer  "matching_id"
     t.integer  "user_id"
     t.text     "message"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "uuid"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  create_table "matches", force: :cascade do |t|
+  create_table "matchings", force: :cascade do |t|
     t.integer  "item_id"
     t.string   "match_type"
     t.boolean  "is_active",  default: true

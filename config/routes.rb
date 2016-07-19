@@ -11,4 +11,8 @@ Rails.application.routes.draw do
   resources :items, param: :uuid, only: [:create, :edit, :show, :update] do
     resources :reservations, param: :uuid, only: [:create, :edit, :index, :show]
   end
+
+  resources :matchings, param: :uuid, only: [:create, :edit, :show, :update, :new] do
+    resources :matching_conversations, param: :uuid, only: [:create, :edit, :index, :show]
+  end
 end
