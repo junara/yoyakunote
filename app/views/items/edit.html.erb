@@ -5,6 +5,8 @@
     <%= f.hidden_field :item_id, value: @item.id %>
     <%= f.text_field :name, class: "form-control" %>
     <%= f.text_area :message, class: "form-control" %>
+    <%= f.text_field :manufacture_name, class: "form-control" %>
+    <%= f.text_field :manufacture_cn, class: "form-control" %>
     <%= f.submit "変更", class: "btn btn-large btn-primary" %>
     <%= link_to "変更せずに戻る", inform_item_path(uuid: @item.uuid), class: "btn btn-primary" %>
     <% end %>

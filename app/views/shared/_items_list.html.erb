@@ -1,0 +1,10 @@
+<div class="container items-list-partial <%= div_tag_name %>">
+  <% items.each do |item| %>
+  <div class="col-sm-4">
+    <div><%= item.name %></div>
+    <div class="">
+      <%= link_to 'item見る', item_path(uuid: item.uuid) %>
+    </div>
+  </div>
+  <% end %>
+</div>

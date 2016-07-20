@@ -9,7 +9,7 @@
   <% end %>
 </header>
 
-<% unless @item.uuid.blank? %>
+<% unless @item.blank? || @item.uuid.blank? %>
 <div id="secondheader" class="">
   <div class="qrcode" style="display: inline-block;"><%= qrcode_svg(item_path, module_size: 1) %></div>
   <div class="item-header-title">
