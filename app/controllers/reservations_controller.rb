@@ -3,6 +3,7 @@ class ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(reservation_params)
     @reservation[:uuid] = SecureRandom.uuid
+    @reservation[:user_id] = session[:user_id] if session[:user_id].present?
     session[:name] = @reservation.name
     flash[:success] = if @reservation.save
                         '予約完了！'

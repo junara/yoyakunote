@@ -8,4 +8,9 @@ class User < ActiveRecord::Base
   has_secure_password
   has_many :matching_conversations
   has_many :matchings
+  has_many :reservations
+  def to_param
+    uuid
+  end
+
 end

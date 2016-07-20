@@ -6,7 +6,9 @@ class UsersController < ApplicationController
 
   def show
     @item = Item.new
-    
+    @matching_conversations = MatchingConversation.where(user_id: session[:user_id])
+    @items = Item.where(user_id: session[:user_id])
+    @reservations = Reservation.where(user_id: session[:user_id])
   end
 
   def edit

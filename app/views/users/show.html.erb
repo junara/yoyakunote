@@ -1,0 +1,32 @@
+<div class="container">
+
+</div>
+
+<div class="container">
+  <ol>
+    <% unless @reservations.nil? then %>
+    <% @reservations.each do |reservation| %>
+    <li class="">
+      <span><%= link_to reservation.item.name, item_path(uuid: reservation.item.uuid) %></span>
+
+      <span><%= reservation.start_datetime.strftime("%H時 %M分") %></span>
+      <span>から</span>
+      <span><%= reservation.end_datetime.strftime("%H時 %M分") %></span>
+      <span><%= reservation.name %></span>
+      <%= link_to "ical出力", item_reservation_path(item_uuid: reservation.item.uuid, uuid: reservation.uuid, format: :ics) %>
+    </li>
+    <hr>
+    <% end %>
+    <% end %>
+  </ol>
+
+</div>
+
+<div class="container">
+  <% @matching_conversations.each do |matching_conversation| %>
+  <div><%= link_to matching_conversation.matching.item.name, matching_path(uuid: matching_conversation.matching.uuid ) %></div>
+  <div><%= matching_conversation.user.name %></div>
+  <div class=""><%= matching_conversation.message %></div>
+  <hr>
+  <% end %>
+</div>
