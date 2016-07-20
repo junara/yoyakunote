@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
 
   match 'search/', to: 'static_pages#search', via: [:get], as: 'search'
+  match 'newnote/', to: 'static_pages#newnote', via: [:get], as: 'newnote'
+
   match 'items/:uuid/inform', to: 'items#inform', via: [:get], as: 'inform_item'
   resources :items, param: :uuid, only: [:create, :edit, :show, :update] do
     resources :reservations, param: :uuid, only: [:create, :edit, :index, :show]

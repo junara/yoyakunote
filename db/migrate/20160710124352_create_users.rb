@@ -10,6 +10,11 @@ class CreateUsers < ActiveRecord::Migration
 
       t.string :password_digest
 
+      t.string :company
+      t.string :prefecture
+      t.string :address
+      t.string :user_type
+      
       t.timestamps null: false
     end
     add_index :users, :uuid, unique: true

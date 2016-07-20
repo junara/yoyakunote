@@ -5,7 +5,7 @@
         <%= form_for(@user) do |f| %>
         <%= render 'shared/error_messages', object: f.object %>
 
-        <%= f.label "ニックネーム" %>
+        <%= f.label "名前" %>
         <%= f.text_field :name, class: 'form-control' %>
 
         <%= f.label :email %>
@@ -17,7 +17,7 @@
         <%= f.label "パスワードの確認", "パスワードの確認" %>
         <%= f.password_field :password_confirmation, class: 'form-control' %>
 
-        <%= f.submit "Create my account", class: "btn btn-primary" %>
+        <%= f.submit "アカウント作成", class: "btn btn-primary" %>
         <% end %>
     </div>
 </div>

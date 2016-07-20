@@ -2,14 +2,13 @@
   <div class="jumbotron special">
     <h1>予約ノート</h1>
   </div>
+<div class="col-xs-6">
+  <%= button_to '使いたい装置を探す', search_path, class: 'btn btn-primary btn-lg', method: :get %>
 
-  <div id="first-form-section">
-    <%= form_for(@item) do |f| %>
-    <%= f.text_field :name, class: "form-control" %>
+</div>
+<div class="col-xs-6">
+  <%= button_to '装置予約ノートを作る', newnote_path, class: 'btn btn-primary btn-lg', method: :get %>
 
-    <%= f.submit "予約ノート作成", class: "btn btn-large btn-primary pull-right" %>
-    <% end %>
-  </div>
-  <div id="description-section">
-  </div>
+</div>
+
 </div>

@@ -7,6 +7,12 @@ class CreateItems < ActiveRecord::Migration
       t.string :manufacture_name
       t.string :manufacture_cn
       t.boolean :is_active, default: true
+      t.string :company
+      t.string :prefecture
+      t.string :address
+      t.string :user_type
+      t.string :item_type
+
       t.timestamps null: false
     end
     add_index :items, :uuid, unique: true

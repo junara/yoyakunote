@@ -46,6 +46,11 @@ ActiveRecord::Schema.define(version: 20160713235049) do
     t.string   "manufacture_name"
     t.string   "manufacture_cn"
     t.boolean  "is_active",        default: true
+    t.string   "company"
+    t.string   "prefecture"
+    t.string   "address"
+    t.string   "user_type"
+    t.string   "item_type"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
   end
@@ -105,6 +110,10 @@ ActiveRecord::Schema.define(version: 20160713235049) do
     t.boolean  "is_active",       default: true
     t.string   "password"
     t.string   "password_digest"
+    t.string   "company"
+    t.string   "prefecture"
+    t.string   "address"
+    t.string   "user_type"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
   end

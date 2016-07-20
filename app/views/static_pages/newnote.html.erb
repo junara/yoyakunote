@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="jumbotron special">
+    <h1>予約ノートを作る</h1>
+  </div>
+
+  <div id="first-form-section">
+    <%= form_for(@item) do |f| %>
+    <%= f.text_field :name, class: "form-control" %>
+
+    <%= f.submit "予約ノート作成", class: "btn btn-lg btn-primary pull-right" %>
+    <% end %>
+  </div>
+  <div id="description-section">
+  </div>
+</div>
