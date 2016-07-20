@@ -1,6 +1,7 @@
 class CreateMatchingConversations < ActiveRecord::Migration
   def change
     create_table :matching_conversations do |t|
+      t.string :name
       t.integer :matching_id
       t.integer :user_id
       t.text :message

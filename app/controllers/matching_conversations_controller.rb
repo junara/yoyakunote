@@ -1,40 +1,21 @@
 class MatchingConversationsController < ApplicationController
-
   def create
-    @reservation = Reservation.new(reservation_params)
-    @reservation[:uuid] = SecureRandom.uuid
-    session[:name] = @reservation.name
-    flash[:success] = if @reservation.save
-                        '予約完了！'
+    @matching_conversation = MatchingConversation.new(matching_conversation_params)
+    @matching_conversation[:uuid] = SecureRandom.uuid
+    @matching_conversation[:user_id] = session[:user_id]
+    flash[:success] = if @matching_conversation.save
+                        '入力しました'
                       else
-                        '入力不良'
+                        '入力できませんでした'
                       end
-    redirect_to item_path(uuid: session[:uuid])
-  end
 
-  def index
-    @reservations = Item.find_by(uuid: params[:item_uuid]).reservations.all
-    @item = Item.find_by(uuid: params[:item_uuid])
-    # calendar = Icalendar::Calendar.new
-    respond_to do |format|
-      format.csv
-      # format.ics { render text: calendar.to_ical }
-      format.ics
-    end
-  end
-
-  def show
-    @reservation = Reservation.find_by(uuid: params[:uuid])
-    @item = Item.find_by(uuid: params[:item_uuid])
-    respond_to do |format|
-      format.ics
-    end
+    redirect_to matching_path(uuid: @matching_conversation.matching.uuid)
   end
 
   private
 
-  def reservation_params
-    params.require(:reservation)
-          .permit(:name, :message, :start_datetime, :end_datetime, :item_id, :uuid)
+  def matching_conversation_params
+    params.require(:matching_conversation)
+          .permit(:name, :message, :matching_id, :uuid, :user_id)
   end
 end

@@ -5,6 +5,10 @@
     <div class="">
       <%= link_to 'item見る', item_path(uuid: item.uuid) %>
     </div>
+    <div id="first-form-section">
+      <%= button_to 'Create', matchings_path(matching: {item_id: item.id, user_id: session[:user_id], match_type: 'innovation'}) %>
+    </div>
+
   </div>
   <% end %>
 </div>

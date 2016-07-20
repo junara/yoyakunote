@@ -1,7 +1,7 @@
 <div class="contaner">
   <ol>
     <li class="bg-info"><%= @item.name %></li>
-    <li class="bg-info"><%= @item.message %></li>
+    <li class="bg-info"><%= simple_format(h(@item.message)) %></li>
   </ol>
 
   <div>

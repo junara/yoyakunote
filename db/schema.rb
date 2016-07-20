@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 20160713235049) do
   end
 
   create_table "matching_conversations", force: :cascade do |t|
+    t.string   "name"
     t.integer  "matching_id"
     t.integer  "user_id"
     t.text     "message"
@@ -71,9 +72,12 @@ ActiveRecord::Schema.define(version: 20160713235049) do
   end
 
   create_table "matchings", force: :cascade do |t|
+    t.string   "name"
     t.integer  "item_id"
     t.string   "match_type"
+    t.integer  "user_id"
     t.boolean  "is_active",  default: true
+    t.string   "uuid"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end

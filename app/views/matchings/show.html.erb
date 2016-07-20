@@ -1,0 +1,21 @@
+<div class="container">
+  <div><%= @matching.item.name %></div>
+  <div><%= @matching.user.name %>さん</div>
+  <%= @matching.match_type %>
+</div>
+
+<div class="container">
+  <hr>
+  <% @matching_conversations.each do |matching_conversation| %>
+  <div><%= matching_conversation.user.name %></div>
+
+  <hr>
+  <% end %>
+
+  <%= form_for [@matching, @matching_conversation] do |f| %>
+  <%= f.hidden_field :matching_id, value: @matching.id %>
+
+  <%= f.text_area :message, class: "form-control" %>
+  <%= f.submit "メッセージ送信", class: "btn btn-large btn-primary" %>
+  <% end %>
+</div>
