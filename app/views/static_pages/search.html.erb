@@ -11,6 +11,36 @@
 
 </div>
 
-<%= render partial: 'shared/items_list',
-  locals: {items: @items,
-  div_tag_name: 'search_results'} %>
+<div class="container">
+  <hr>
+  <h2>あなた「（<%= @current_user.name %>）」さんが登録した装置</h2>
+  <%= render partial: 'shared/items_list',
+    locals: {items: @my_items,
+    div_tag_name: 'my_items'} %>
+  <hr>
+
+  <h2>あなたの都道府県（<%= @current_user.prefecture %>）にある研究使用相談可能実験装置</h2>
+  <%= render partial: 'shared/items_list',
+    locals: {items: @near_items,
+    div_tag_name: 'my_items'} %>
+  <hr>
+
+  <h2>研究使用相談可能実験装置</h2>
+
+  <%= render partial: 'shared/items_list',
+      locals: {items: @innovation_items,
+      div_tag_name: @innovation_items.first.item_type} %>
+  <hr>
+  <h2>メーカー提供のデモ機使用等相談可能実験装置</h2>
+
+  <%= render partial: 'shared/items_list',
+        locals: {items: @business_items,
+        div_tag_name: @business_items.first.item_type} %>
+  <hr>
+  <h2>検索キーワードに関連する実験装置の知識</h2>
+
+  <%= render partial: 'shared/knowledges_list',
+              locals: {knowledges: @knowledges,
+              div_tag_name: 'knowledges'} %>
+
+</div>

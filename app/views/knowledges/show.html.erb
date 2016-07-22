@@ -1,0 +1,8 @@
+<div class="container">
+  <%= image_tag(@knowledge.webimage_url,
+   alt: 'knowledge', class: 'img-rounded img-responsive') %>
+   <div class="item-header well-lg">
+     <%= auto_link(simple_format(@knowledge.message), html: { target: '_blank' }, link: :urls)   %>
+   </div>
+
+</div>

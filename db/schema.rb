@@ -40,17 +40,23 @@ ActiveRecord::Schema.define(version: 20160713235049) do
   end
 
   create_table "items", force: :cascade do |t|
+    t.boolean  "is_active",        default: true
     t.string   "name",                            null: false
     t.string   "uuid",                            null: false
     t.text     "message"
     t.string   "manufacture_name"
     t.string   "manufacture_cn"
-    t.boolean  "is_active",        default: true
     t.string   "company"
     t.string   "prefecture"
     t.string   "address"
     t.string   "user_type"
     t.string   "item_type"
+    t.integer  "user_id"
+    t.string   "image"
+    t.string   "webimage_url"
+    t.integer  "favorite_counter"
+    t.integer  "access_counter"
+    t.integer  "activity_counter"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
   end
@@ -58,12 +64,18 @@ ActiveRecord::Schema.define(version: 20160713235049) do
   add_index "items", ["uuid"], name: "index_items_on_uuid", unique: true
 
   create_table "knowledges", force: :cascade do |t|
-    t.string   "image"
     t.string   "name"
     t.text     "message"
+    t.string   "uuid"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "item_id"
+    t.string   "image"
+    t.string   "webimage_url"
+    t.integer  "favorite_counter"
+    t.integer  "access_counter"
+    t.integer  "activity_counter"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "matching_conversations", force: :cascade do |t|
@@ -104,18 +116,23 @@ ActiveRecord::Schema.define(version: 20160713235049) do
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
-    t.string   "uuid",                           null: false
+    t.string   "uuid",                            null: false
     t.text     "message"
     t.string   "email"
-    t.boolean  "is_active",       default: true
+    t.boolean  "is_active",        default: true
     t.string   "password"
     t.string   "password_digest"
     t.string   "company"
     t.string   "prefecture"
     t.string   "address"
     t.string   "user_type"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.string   "image"
+    t.string   "webimage_url"
+    t.integer  "favorite_counter"
+    t.integer  "access_counter"
+    t.integer  "activity_counter"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
   add_index "users", ["uuid"], name: "index_users_on_uuid", unique: true

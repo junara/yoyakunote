@@ -1,9 +1,47 @@
-<div class="contaner">
-  <ol>
-    <li class="bg-info"><%= @item.name %></li>
-    <li class="bg-info"><%= simple_format(h(@item.message)) %></li>
-  </ol>
+<div class="container">
 
+  <h2>この装置のアクティビティは<%= @item.activity_counter %>です。</h2>
+  <hr>
+  <table class="table table-striped">
+    <tbody>
+      <tr>
+        <td>装置固有id</td>
+        <td><%= @item.id %></td>
+      </tr>
+      <tr>
+        <td>装置名称</td>
+        <td><%= @item.name %></td>
+      </tr>
+      <tr>
+        <td>装置説明</td>
+        <td><%= simple_format(h(@item.message)) %></td>
+      </tr>
+      <tr>
+        <td>装置会社</td>
+        <td><%= @item.manufacture_name %></td>
+      </tr>
+      <tr>
+        <td>装置型番</td>
+        <td><%= @item.manufacture_cn %></td>
+      </tr>
+      <tr>
+        <td>所有組織</td>
+        <td><%= @item.company %></td>
+      </tr>
+      <tr>
+        <td>設置都道府県</td>
+        <td><%= @item.prefecture %></td>
+      </tr>
+      <tr>
+        <td>設置住所</td>
+        <td><%= @item.address %></td>
+      </tr>
+      <tr>
+        <td>装置タイプ</td>
+        <td><%= @item.item_type %></td>
+      </tr>
+    </tbody>
+  </table>
   <div>
     <%= link_to "装置情報編集", edit_item_path(uuid: @item.uuid), class: "btn btn-primary pull-right" %>
   </div>

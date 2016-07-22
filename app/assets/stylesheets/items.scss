@@ -16,7 +16,7 @@ div.flexbox-container-calendar {
   width: 300px;
   border: 1px solid black;
   div.flexbox-item-calendar {
-    width: calc((100% - #{$mc * ($nc - 1) * 2 + $mc * 2}) / #{$nc});
+    width: calc((100% - #{$mc * ($nc - 1) * 2 + $mc * 2}) / #{$nc} - 0.1%);
     // border: 1px solid black;
     border-top: 1px solid black;
     border-bottom: 1px solid black;

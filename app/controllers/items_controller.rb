@@ -23,6 +23,8 @@ class ItemsController < ApplicationController
     @today_reservations = date_hashed_reseravations(@item, Date.today, Date.today)
     @later_reservations = date_hashed_reseravations(@item, Date.today + 1, endate - 1)
     @reservation = @item.reservations.build
+    @knowledges = Knowledge.where(item_id: @item.id).limit(3)
+
   end
 
   def edit

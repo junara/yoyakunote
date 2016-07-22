@@ -9,8 +9,8 @@ class User < ActiveRecord::Base
   has_many :matching_conversations
   has_many :matchings
   has_many :reservations
+  has_many :knowledges
   def to_param
     uuid
   end
-
 end

@@ -1,10 +1,25 @@
 <div class="container">
-  <div class="item-header">
-    <p>
-      <%= auto_link(simple_format(@item.message), html: { target: '_blank' }, link: :urls)   %>
-    </p>
+  <div class="col-sm-3">
+    <%= image_tag(@item.webimage_url,
+     alt: 'item', class: 'img-rounded img-responsive') %>
   </div>
+
+  <div class="item-header well-lg col-sm-6">
+    <%= auto_link(simple_format(@item.message), html: { target: '_blank' }, link: :urls)   %>
+  </div>
+  <div class="qrcode col-sm-3" style="display: inline-block;"><%= qrcode_svg(item_path, module_size: 4) %></div>
+</div>
+<div class="container">
+  <hr>
   <%= render partial: 'calendar', locals: { item: @item } %>
+  <hr>
+  <h2><%= @item.name %>の知見履歴</h2>
+
+  <%= render partial: 'shared/knowledges_list',
+              locals: {knowledges: @knowledges,
+              div_tag_name: 'knowledges'} %>
+  <hr>
+  <h2><%= @item.name %>の予約ノート</h2>
 
   <%= render partial: 'reservations', locals: { item: @item } %>
 

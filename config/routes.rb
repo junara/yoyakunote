@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post   'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
   resources :users, param: :uuid
+  resources :knowledges, param: :uuid
   resources :sessions, only: [:new, :create, :destroy]
 
   match 'search/', to: 'static_pages#search', via: [:get], as: 'search'

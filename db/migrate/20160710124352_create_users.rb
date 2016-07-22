@@ -14,7 +14,12 @@ class CreateUsers < ActiveRecord::Migration
       t.string :prefecture
       t.string :address
       t.string :user_type
-      
+      t.string :image
+      t.string :webimage_url
+      t.integer :favorite_counter
+      t.integer :access_counter
+      t.integer :activity_counter
+
       t.timestamps null: false
     end
     add_index :users, :uuid, unique: true

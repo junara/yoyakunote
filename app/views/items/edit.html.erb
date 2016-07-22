@@ -2,11 +2,28 @@
 <div class="container">
   <div class="form-horizontal" role="form">
     <%= form_for [@item] do |f| %>
+
     <%= f.hidden_field :item_id, value: @item.id %>
+
+    <%= f.label "装置名称" %>
     <%= f.text_field :name, class: "form-control" %>
+
+    <%= f.label "説明" %>
     <%= f.text_area :message, class: "form-control" %>
+
+    <%= f.label "装置メーカー" %>
     <%= f.text_field :manufacture_name, class: "form-control" %>
+
+    <%= f.label "装置型番" %>
     <%= f.text_field :manufacture_cn, class: "form-control" %>
+    <%= f.label "装置所有組織" %>
+    <%= f.text_field :company, class: "form-control" %>
+    <%= f.label "装置設置都道府県" %>
+    <%= f.text_field :prefecture, class: "form-control" %>
+    <%= f.label "装置設置住所" %>
+    <%= f.text_field :address, class: "form-control" %>
+    <%= f.label "装置タイプ" %>
+    <%= f.text_field :item_type, class: "form-control" %>
     <%= f.submit "変更", class: "btn btn-large btn-primary" %>
     <%= link_to "変更せずに戻る", inform_item_path(uuid: @item.uuid), class: "btn btn-primary" %>
     <% end %>

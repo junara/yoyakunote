@@ -1,13 +1,30 @@
-<div class="container items-list-partial <%= div_tag_name %>">
+<div class="container items-list-partial <%= div_tag_name %> flexbox-container">
   <% items.each do |item| %>
-  <div class="col-sm-4">
-    <div class="">
-      <%= link_to item.name, item_path(uuid: item.uuid) %>
+  <div class="flexbox-item">
+    <div class="first-col">
+      <%= link_to image_tag(item.webimage_url,
+       alt: 'item', class: 'img-rounded img-responsive'),
+        item_path(uuid: item.uuid) %>
     </div>
-    <div>
-      <%= button_to '使用相談', matchings_path(matching: {item_id: item.id, user_id: session[:user_id], match_type: 'innovation'}) %>
+    <div class="second-col">
+      <div class="">
+        <%= link_to item.name, item_path(uuid: item.uuid) %>
+      </div>
+      <div class="">
+        <span>メーカー</span>
+        <span><%= item.manufacture_name %></span>
+        <span>型番</span>
+        <span><%= item.manufacture_cn %></span>
+      </div>
     </div>
-
+    <div class="third-col">
+      <div class="prefecture">
+        <%= item.prefecture %>
+      </div>
+      <div>
+        <%= button_to '使用相談', matchings_path(matching: {item_id: item.id, user_id: session[:user_id], match_type: 'innovation'}) %>
+      </div>
+    </div>
   </div>
   <% end %>
 </div>

@@ -31,10 +31,17 @@ gem 'cloudinary'
 gem 'momentjs-rails'
 gem 'bootstrap3-datetimepicker-rails'
 
+#seed用
+gem 'faker'
+gem 'forgery_ja'
+gem 'forgery'
+gem 'gimei'
+
 group :development, :test do
   gem 'sqlite3'
   gem 'pry-byebug'
   gem 'quiet_assets'
+
 end
 
 group :development do

@@ -2,13 +2,80 @@
   <div class="jumbotron special">
     <h1>予約ノート</h1>
   </div>
-<div class="col-xs-6">
-  <%= button_to '使いたい装置を探す', search_path, class: 'btn btn-primary btn-lg', method: :get %>
+  <div class="start-button">
+    <div class="col-sm-6">
+      <%= button_to '使いたい装置を探す', search_path, class: 'btn btn-primary btn-lg', method: :get %>
+    </div>
+    <div class="col-sm-6">
+      <%= button_to '装置予約ノートを作る', newnote_path, class: 'btn btn-primary btn-lg', method: :get %>
+    </div>
 
+  </div>
 </div>
-<div class="col-xs-6">
-  <%= button_to '装置予約ノートを作る', newnote_path, class: 'btn btn-primary btn-lg', method: :get %>
 
+<div class="container">
+  <hr>
+  <div class=" aboutbox">
+    <h2>この「予約ノート」サービスとは？</h2>
+    <div class="about">
+      <%= image_tag('about_site.png',
+       alt: 'aboutus', class: 'img-rounded img-responsive') %>
+      <ul>
+        <li>バイオテクノロジー研究を加速したい研究者同士をつなげるマッチングサービスです。</li>
+        <li>これは日本全国のバイオ実験装置の検索予約を実現し、
+          実験装置をハブに異分野研究者同士をつなぐことでイノベーションを興します。</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <hr>
+  <div class="researcher1">
+    <h2>新規アイディアを迅速に実現したい研究者</h2>
+    <div class="about">
+      <%= image_tag('researcher1.png',
+       alt: 'aboutus', class: 'img-rounded img-responsive') %>
+      <ul>
+        <li>実験装置がないからと思ってせっかくのアイディアを試さずにしまい込んでいませんか？</li>
+        <li>まずは<strong>使いたい装置を探す</strong>を試してみませんか？</li>
+        <li>実際に実験装置を使っているエキスパート（研究者、メーカー）から情報が得られれば研究効率を向上出来ます。</li>
+      </ul>
+      <%= button_to '使いたい装置を探す', search_path, class: 'btn btn-primary btn-lg', method: :get %>
+
+    </div>
+  </div>
 </div>
 
+<div class="container">
+  <hr>
+  <div class="researcher1">
+    <h2>実験装置と知識をもっと広く活用したい研究者</h2>
+    <div class="about">
+      <%= image_tag('researcher2.png',
+       alt: 'aboutus', class: 'img-rounded img-responsive') %>
+      <ul>
+        <li>実験装置を使った研究により得られた知識をより多くの研究者に役立てませんか？</li>
+        <li>あなたの実験装置と知識にに興味を持つ異分野の研究者と交流することで、イノベーションが生まれるかもしれません</li>
+        <li>さらに、<strong>予約ノート</strong>は、実験装置の予約とノウハウの蓄積をスマホだけで実現できます。</li>
+        <li><strong>予約ノート</strong>無料のサービスです。ぜひ一度試してみませんか？</li>
+      </ul>
+      <%= button_to '装置予約ノートを作る', newnote_path, class: 'btn btn-primary btn-lg', method: :get %>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <hr>
+  <div class="maker1">
+    <h2>実験装置をもっと多くのユーザーに知ってもらいたいメーカー・代理店</h2>
+    <div class="about">
+      <%= image_tag('maker1.png',
+       alt: 'aboutus', class: 'img-rounded img-responsive') %>
+      <ul>
+        <li>メーカー、代理店の皆様、ローンチした実験装置に興味を持っているユーザーにアプローチ仕切れていますか？</li>
+        <li></li>
+      </ul>
+
+    </div>
+  </div>
 </div>

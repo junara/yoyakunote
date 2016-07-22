@@ -1,0 +1,29 @@
+$n-item-list-partial: 3; //1行当たりのカラム数
+$m-item-list-partial: 1%; //カラム左右のマージン
+div.items-list-partial.flexbox-container,
+div.knowledges-list-partial.flexbox-container {
+  background: white;
+  display: flex; //flexboxレイアウトを使うためのおまじない
+  flex-wrap: wrap; //折り返しの設定
+  div.flexbox-item {
+    width: calc((100% - #{$m-item-list-partial * ($n-item-list-partial - 1) * 2 + $m-item-list-partial * 2}) / #{$n-item-list-partial} - 0.1%);
+    // border: 1px solid black;
+    margin: 2rem $m-item-list-partial;
+    div.day-title {
+      border-bottom: 1px solid black; //flexboxとは関係なし。ただの修飾。
+    }
+  }
+}
+.aboutbox {
+  padding: 1rem;
+  background: white;
+}
+@media (max-width: 767px) {
+  /*レスポンシブ用*/
+  div.flexbox-container {
+    display: block;
+    div.flexbox-item {
+      width: 100%;
+    }
+  }
+}
