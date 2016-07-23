@@ -77,7 +77,7 @@ end
     address: Gimei.city.kanji + Gimei.town.to_s + Faker::Number.between(1, 5).to_s + '丁目' + Faker::Number.between(1, 10).to_s + '番地',
     user_type: '',
     access_counter: Faker::Number.between(1, 999),
-    activity_counter: Faker::Number.between(1, 100),
+    activity_counter: Faker::Number.between(1, 9999),
     user_id: Faker::Number.between(1, 10),
     webimage_url: fake_item_webimage_url,
     item_type: fake_item_item_type
@@ -103,12 +103,12 @@ end
 
 10000.times do |_n|
   random = Random.new
-  useridnum = random.rand(1..3)
+  useridnum = random.rand(1..10)
   random = Random.new
   itemidnum = random.rand(1..1000)
 
   Knowledge.create(
-    message: Forgery(:lorem_ipsum).words(20),
+    message: Forgery(:lorem_ipsum).words(100),
     uuid: SecureRandom.uuid,
     user_id: useridnum,
     webimage_url: fake_knowledge_webimage_url,

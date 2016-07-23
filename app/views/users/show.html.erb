@@ -1,8 +1,7 @@
-<div class="container">
-
-</div>
+<div class="container"></div>
 
 <div class="container">
+  <h2>あなた「（<%= @current_user.name %>）」さんが予約している装置</h2>
   <ol>
     <% unless @reservations.nil? then %>
     <% @reservations.each do |reservation| %>
@@ -19,11 +18,26 @@
     <% end %>
     <% end %>
   </ol>
+  <h2>あなた「（<%= @current_user.name %>）」さんが登録した装置</h2>
+  <%= render partial: 'shared/items_list',
+    locals: {items: @my_items,
+    div_tag_name: 'my_items'} %>
+  <hr>
 
 </div>
 
 <div class="container">
-  <% @matching_conversations.each do |matching_conversation| %>
+  <h2>あなた「（<%= @current_user.name %>）」さんがマッチング中の装置</h2>
+  <% @to_matching_conversations.each do |matching_conversation| %>
+  <div>
+    <% if matching_conversation.matching.user_id == @current_user.id %>
+    To
+    <%= matching_conversation.matching.item.user.company %> 所属 <%= matching_conversation.matching.item.user.name %>
+    <% else %>
+    From
+    <%= matching_conversation.matching.item.user.company %> 所属 <%= matching_conversation.matching.item.user.name %>
+    <% end %>
+  </div>
   <div><%= link_to matching_conversation.matching.item.name, matching_path(uuid: matching_conversation.matching.uuid ) %></div>
   <div><%= matching_conversation.user.name %></div>
   <div class=""><%= matching_conversation.message %></div>

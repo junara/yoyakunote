@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_many :matchings
   has_many :reservations
   has_many :knowledges
+  has_many :items
   def to_param
     uuid
   end

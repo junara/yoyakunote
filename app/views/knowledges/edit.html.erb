@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="">
+    <%= image_tag(@knowledge.webimage_url,
+     alt: 'knowledge', class: 'img-rounded img-responsive center-block') %>
+
+  </div>
+  <div class="form-horizontal" role="form">
+    <%= form_for [@knowledge] do |f| %>
+
+    <%= f.hidden_field :item_id, value: @knowledge.id %>
+
+    <%= f.label "イメージURL" %>
+    <%= f.text_field :webimage_url, class: "form-control" %>
+
+    <%= f.label "説明" %>
+    <%= f.text_area :message, class: "form-control" %>
+    <%= f.submit "変更", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+  <%= link_to "変更せずに戻る", knowledge_path(uuid: @knowledge.uuid), class: "btn btn-primary" %>
+
+
+</div>

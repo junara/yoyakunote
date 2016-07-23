@@ -6,8 +6,14 @@ class UsersController < ApplicationController
 
   def show
     @item = Item.new
-    @matching_conversations = MatchingConversation.where(user_id: session[:user_id])
+    @items = Item.all if @items == Item
     @items = Item.where(user_id: session[:user_id])
+
+    @my_items = @items.where(user_id: session[:user_id])
+                      .where.not(item_type: 'business').order('activity_counter DESC').limit(3)
+
+    @to_matching_conversations = MatchingConversation.where(user_id: session[:user_id])
+    # @from_matching_conversations = Matching.matching.where(user_id: session[:user_id])
     @reservations = Reservation.where(user_id: session[:user_id])
   end
 

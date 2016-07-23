@@ -3,12 +3,15 @@
   <div class="flexbox-item">
     <div class="first-col">
       <%= link_to image_tag(item.webimage_url,
-       alt: 'item', class: 'img-rounded img-responsive'),
+       alt: 'item', class: 'img-rounded img-responsive center-block'),
         item_path(uuid: item.uuid) %>
     </div>
     <div class="second-col">
       <div class="">
         <%= link_to item.name, item_path(uuid: item.uuid) %>
+      </div>
+      <div class="active-counter">
+        装置活発度<strong><%= item.activity_counter %></strong>点
       </div>
       <div class="">
         <span>メーカー</span>
@@ -21,9 +24,13 @@
       <div class="prefecture">
         <%= item.prefecture %>
       </div>
+      <% if item.item_type == 'innovation' %>
       <div>
         <%= button_to '使用相談', matchings_path(matching: {item_id: item.id, user_id: session[:user_id], match_type: 'innovation'}) %>
       </div>
+      <% elsif item.item_type == 'business' %>
+      <%= button_to 'デモ依頼', matchings_path(matching: {item_id: item.id, user_id: session[:user_id], match_type: 'business'}) %>
+      <% end %>
     </div>
   </div>
   <% end %>

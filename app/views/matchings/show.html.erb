@@ -1,13 +1,16 @@
 <div class="container">
-  <div><%= @matching.item.name %></div>
-  <div><%= @matching.user.name %>さん</div>
-  <%= @matching.match_type %>
+  <div><%= @matching.user.name %>さん
+    <%= @matching.created_at %>依頼</div>
+  <div class="jumbotron special">
+    <h1><%= @matching.item.name %></h2>のマッチング
+  </div>
+
 </div>
 
 <div class="container">
   <hr>
   <% @matching_conversations.each do |matching_conversation| %>
-  <div><%= matching_conversation.user.name %></div>
+  <div><%= matching_conversation.user.name %>さん<%= matching_conversation.created_at %>投稿</div>
   <div class=""><%= auto_link(simple_format(matching_conversation.message), html: { target: '_blank' }) %></div>
   <hr>
   <% end %>

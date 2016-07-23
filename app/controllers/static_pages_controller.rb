@@ -8,12 +8,14 @@ class StaticPagesController < ApplicationController
     @search_form = ItemSearchForm.new(params[:search])
     @items = @search_form.search
     @items = Item.all if @items == Item
-    @my_items = @items.where(user_id: session[:user_id]).limit(6)
+    @my_items = @items.where(user_id: session[:user_id])
+                      .where.not(item_type: 'business').order('activity_counter DESC').limit(3)
     @innovation_items = @items.where(item_type: 'innovation')
-                              .order('activity_counter DESC').limit(15)
-    @business_items = @items.where(item_type: 'business').order('activity_counter DESC').limit(15)
-    @knowledges = Knowledge.where(item_id: @items.ids).limit(15)
+                              .order('activity_counter DESC').limit(9)
+    @business_items = @items.where(item_type: 'business').order('activity_counter DESC').limit(9)
+    @knowledges = Knowledge.where(item_id: @items.ids).order('activity_counter DESC').limit(9)
     @near_items = @items.where(prefecture: @current_user.prefecture)
+                        .where.not(item_type: 'business').order('activity_counter DESC').limit(3)
   end
 
   def newnote

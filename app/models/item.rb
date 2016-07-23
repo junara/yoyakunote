@@ -6,6 +6,7 @@ class Item < ActiveRecord::Base
   has_many :reservations
   has_many :matchings
   has_many :knowledges
+  belongs_to :user
 
   def to_param
     uuid

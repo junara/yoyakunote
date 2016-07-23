@@ -24,6 +24,7 @@
             day: key.day},
           class: "form-control"
         %>
+          <% session[:name] = @current_user.name %>
             <%= f.text_field :name, value: session[:name], class: "form-control" %>
             <%= f.submit "予約追加", class: "btn btn-large btn-primary" %>
             <% end %>
